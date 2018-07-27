@@ -1,7 +1,7 @@
 {
-  "name": "Galapagos Client",
+  "name": "Galapagos-Client",
   "version": "1.0.0",
-  "description": "galapagos client side application",
+  "description": "Galapagos Client Side Application",
   "main": "index.js",
   "scripts": {
     "start": "npm run build",
