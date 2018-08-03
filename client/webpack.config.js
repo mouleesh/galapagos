@@ -27,8 +27,10 @@ var config = {
         '/api': {
           target: 'http://localhost:3100'
         }
-      }
-    }
+      },
+      historyApiFallback: true
+    },
+    devtool: 'cheap-eval-source-map'
 };
 
 module.exports = config;

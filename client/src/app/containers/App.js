@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 
 import { User } from "../components/User";
 import { Main } from "../components/Main";
-import { setName } from "../actions/userActions";
+// import { setName } from "../actions/userActions";
 
 class App extends React.Component {
   state = {
@@ -38,18 +38,11 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-      user: state.user,
-      math: state.math
-  };
+  return {};
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        setName: (name) => {
-            dispatch(setName(name));
-        }
-    };
+    return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

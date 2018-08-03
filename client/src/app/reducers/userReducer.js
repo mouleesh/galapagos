@@ -1,5 +1,5 @@
 const userReducer = (state = {
-    name: "Max",
+    name: "Default Name set by reducer",
     age: 27
 }, action) => {
     switch (action.type) {

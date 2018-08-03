@@ -15,6 +15,12 @@ const port = process.env.PORT || 3100;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+
 app.post('/api/users/signup', (req, res) => {
   var body = _.pick(req.body, ['name', 'email', 'password']);
   var user = new User(body);
@@ -33,6 +39,12 @@ app.post('/api/users/login', (req, res) => {
 
   User.findByCredentials(body.email, body.password).then((user) => {
     return user.generateAuthToken().then((token) => {
+
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+      res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+      
       res.header('x-auth', token).send(user);
     });
   }).catch((e) => {
